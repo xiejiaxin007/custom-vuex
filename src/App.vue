@@ -1,32 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    {{this.$store.state.age}}
+    {{this.$store.getters.getAge}}
+    <br>
+    <button @click="add">加号</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button @click="minus">减号</button>
   </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  mounted() {
+    // setTimeout(() => {
+    //   this.$store.state.age = 100;
+    // }, 1000);
+  },
+  methods: {
+    add() {
+      this.$store.commit('add', 10);
+    },
+    minus() {
+      this.$store.dispatch('minus', 1);
+    }
+  }
 }
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
