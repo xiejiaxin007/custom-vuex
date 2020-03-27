@@ -1,4 +1,4 @@
-# vuex-test
+# vuex-custom
 
 ## Project setup
 ```
